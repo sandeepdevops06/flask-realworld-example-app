@@ -8,24 +8,36 @@ class Config(object):
     """Base configuration."""
 
     SECRET_KEY = os.environ.get('CONDUIT_SECRET', 'secret-key')  # TODO change me
-    /** IE9, IE10 and IE11 requires all of the following polyfills. **/
-// import 'core-js/es6/symbol';
-// import 'core-js/es6/object';
-// import 'core-js/es6/function';
-// import 'core-js/es6/parse-int';
-// import 'core-js/es6/parse-float';
-// import 'core-js/es6/number';
-// import 'core-js/es6/math';
-// import 'core-js/es6/string';
-// import 'core-js/es6/date';
-// import 'core-js/es6/array';
-// import 'core-js/es6/regexp';
-// import 'core-js/es6/map';
-// import 'core-js/es6/weak-map';
-// import 'core-js/es6/set';
+# These are here so you can change them to customize the program
+# easily.
+default_greeting = "Hello World!"
+filename = "greeting.txt"
 
-/** IE10 and IE11 requires the following for NgClass support on SVG elements */
-// import 'classlist.js';  // Run `npm install --save classlist.js`.
+
+import sys
+
+def askyesno(question):
+    while True:
+        answer = input(question + ' (y or n) ')
+        if answer == 'Y' or answer == 'y':
+            return True
+        if answer == 'N' or answer == 'n':
+            return False
+
+def greet():
+    with open(filename, 'r') as f:
+        for line in f:
+            print(line.rstrip('\n'))
+
+try:
+    greet()
+except OSError:
+    print("Cannot read '%s'!" % filename, file=sys.stderr)
+    if askyesno("Would you like to create a default greeting file?"):
+        with open(filename, 'w') as f:
+            print(default_greeting, file=f)
+        greet()
+        
     APP_DIR = os.path.abspath(os.path.dirname(__file__))  # This directory
     PROJECT_ROOT = os.path.abspath(os.path.join(APP_DIR, os.pardir))
     BCRYPT_LOG_ROUNDS = 13
