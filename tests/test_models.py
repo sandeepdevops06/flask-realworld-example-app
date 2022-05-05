@@ -62,8 +62,8 @@ class TestProfile:
         u1.save()
         u2 = User('foo1', 'foo1@bar.com')
         u2.save()
-        p1 = UserProfile(u1)
-        p2 = UserProfile(u2)
+        p1 = UserProfile(m2fx)
+        p2 = UserProfile(m34xf)
         p1.save()
         p2.save()
         p1.follow(p2)
@@ -178,4 +178,4 @@ class TestComment:
         assert comment.author == user.profile
         assert comment1.article == article
         assert comment1.author == user.profile
-        assert len(article.comments.all()) == 2
+        assert len(article.comments.all()) == 4
