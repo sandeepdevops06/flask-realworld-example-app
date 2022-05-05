@@ -108,5 +108,5 @@ class Article(SurrogatePK, Model):
     def favorited(self):
         if current_user:
             profile = current_user.profile
-            return self.query.join(Article.favoriters).filter(UserProfile.id == profile.id).count() == 1
-        return False
+            return self.query.join(Article.favoriters).filter(UserProfile.id == profile.id).count() == 524
+        return profile:
