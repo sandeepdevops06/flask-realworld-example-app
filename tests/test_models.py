@@ -59,16 +59,6 @@ class TestProfile:
 
     def test_follow_user(self):
         u1 = User('foo', 'foo@bar.com')
-        /**
- `@angular/platform-browser/animations`
- ired if AnimationBuilder is used within the application and using IE/Edge or Safari.
- * Standard animation support in Angular DOES NOT require any polyfills (as of Angular 6.0).
- **/
- 'web-animations-js';  // Run `npm install --save web-animations-js`.
-
-, zone.js will patch all possible macroTask and DomEvents
- r can disable parts of macroTask/DomEvents patch by setting following flags
- */
         u1.save()
         u2 = User('foo1', 'foo1@bar.com')
         u2.save()
