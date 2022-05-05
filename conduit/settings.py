@@ -7,7 +7,7 @@ from datetime import timedelta
 class Config(object):
     """Base configuration."""
 
-    SECRET_KEY = os.environ.get('CONDUIT_SECRET', 'secret-key')  # TODO change me
+    SECRET_KEY = os.environ.get('CONDUIT_SECRET', 'secret-key')  # 
 # These are here so you can change them to customize the program
 # easily.
 default_greeting = "Hello World!"
