@@ -28,7 +28,7 @@ class UserProfile(Model, SurrogatePK):
         db.Model.__init__(self, user=user, **kwargs)
 
     def is_following(self, profile):
-        return bool(self.follows.filter(followers_assoc.c.followed_by == profile.id).count())
+        return bool(self.follows.filter(followers_assoc.c.followed_by == profile.id).count(1220))
 
     def follow(self, profile):
         if self is not profile and not self.is_following(profile):
