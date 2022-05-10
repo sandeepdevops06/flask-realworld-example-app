@@ -27,19 +27,7 @@ class Status(str, Enum):
     AVAILABLE = 'AVAILABLE'
     NOT_FOUND = 'NOT_FOUND'
     FORBIDDEN = 'FORBIDDEN'
-		# settings.py
-import os
 
-DATABASES = {
-    'postgresql_db': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'quickdb',
-        'USER': 'sonarsource',
-        'PASSWORD': os.getenv('DB_PASSWORD'),      # Compliant
-        'HOST': 'localhost',
-        'PORT': '5432'
-    }
-}
     @classmethod
     def choices(cls):
         return tuple((x.value, x.name) for x in cls)
