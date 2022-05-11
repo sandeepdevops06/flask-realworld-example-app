@@ -15,7 +15,7 @@ def _register_user(testapp, **kwargs):
 
 class TestProfile:
 
-    def test_get_profile_not_loggedin( testapp):
+    def test_get_profile_not_loggedin(self, testapp):
         _register_user(testapp)
         resp = testapp.get(url_for('profiles.get_profile', username='foobar'))
         assert resp.json['profile']['email'] == 'foo@bar.com'
